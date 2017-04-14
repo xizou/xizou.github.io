@@ -1,2 +1,4 @@
 name: Xi's site
 markdown: kramdown
+
+permalink: /blog/:year/:month/:day/:title
