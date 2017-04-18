@@ -1,20 +1,19 @@
 ---
 layout: default
 ---
-<h1>{{ page.title }}</h1>
-<p class="meta">{{ page.date | date_to_string }}</p>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-<div class="post">
-  {{ content }}
-</div>
+  <header class="post-header">
+    {% if page.external-url %}
+      <h1 class="post-title" itemprop="name headline"><a href="{{ page.external-url }}">{{ page.title | escape }} &rarr;</a></h1>
+    {% else %}
+      <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+    {% endif %}
+    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}{% if page.categories != empty %} • {% include category_links.html categories=page.categories %}{% endif %}</p>
+  </header>
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
 
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
+</article>
