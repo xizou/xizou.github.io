@@ -7,8 +7,7 @@ categories: ict
 
 ## Install HFS+ Rescue
 
-Download from https://www.plop.at/en/hfsprescue/download.html.
-Compile and install according to instructions.
+Download from [here](https://www.plop.at/en/hfsprescue/download.html). Compile and install according to instructions.
 
 ## Scan the corrupted disk
 
