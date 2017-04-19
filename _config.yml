@@ -43,3 +43,5 @@ jekyll-archives:
 
 kramdown:
   input: GFM
+
+google_analytics: UA-97667107-1
