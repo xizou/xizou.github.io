@@ -20,7 +20,7 @@ $ hfsprescue -s1 /dev/sdc1 -b 4096
 
 ## Cleanup file database
 
-```bash
+```shell
 $ hfsprescue -s2 /dev/sdc1 -b 4096
 ```
 
@@ -29,7 +29,7 @@ $ hfsprescue -s2 /dev/sdc1 -b 4096
 Volume Header is defect, it is needed to extract the EOF.
 
 ```shell
-hfsprescue --find-eof /dev/sdc1 -b 4096
+$ hfsprescue --find-eof /dev/sdc1 -b 4096
 ```
 
 Result:
@@ -42,7 +42,7 @@ Result:
 So the last block is 5285-1=5284:
 
 ```shell
-hfsprescue --extract-eof /dev/sdc1 -b 4096 --start-block 4928 --last-block 5284
+$ hfsprescue --extract-eof /dev/sdc1 -b 4096 --start-block 4928 --last-block 5284
 ```
 
 After that, use `--one-file` to test the restored file.
@@ -69,3 +69,4 @@ $ hfsprescue -s5
 ```shell
 $ hfsprescue -s6
 ```
+

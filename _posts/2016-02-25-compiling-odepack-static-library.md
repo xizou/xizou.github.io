@@ -9,11 +9,11 @@ categories: fortran
 1. Download [OdePack](http://www.netlib.org/odepack/). Only three files are needed, for double precision, the files we need are:
 `opkdmain.f`, `opkda1.f` and `opkda2.f`.
 2. Compile the source codes with
-```Shell
+```shell
 $ gfortran -c opkdmain.f opkda1.f opkda2.f
 ```
 three object files will be created, namely: `opkdmain.o`, `opkda1.o` and `opkda2.o`.
 3. Build the static library `libodepack.a` with
-```Shell
+```shell
 $ ar rcs libodepack.a opkdmain.o opkda1.o opkda2.o
 ```

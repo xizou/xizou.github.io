@@ -5,7 +5,7 @@ date:   2017-03-16 11:09:33 +0200
 categories: latex
 ---
 
-### Using TeXLive 2015 on LinuxMint in usermode
+## Using TeXLive 2015 on LinuxMint in usermode
 
 ```shell
 $ tlmgr init-usertree
@@ -25,14 +25,14 @@ To use `newtx` package, the following should be installed:
 - `kastrup`
 - `boondox`
 
-### Use of `newtx` package:
+## Use of `newtx` package:
 
-##### Method 1
+### Method 1
 ```latex
 \usepackage{newtxtext}
 \usepackage[cmintegrals]{newtxmath}
 ```
-##### Method 2
+### Method 2
 
 ```latex
 \usepackage{esint,newtxtext,newtxmath}
