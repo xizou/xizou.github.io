@@ -79,20 +79,20 @@ mex -largeArrayDims dijkstra.cpp
 
 On 64-bit Linux systems, there will be a problem like:
 
->
->cannot convert ‘mwIndex* {aka long unsigned int*}’ to ‘int*’ in assignment
+>cannot convert `mwIndex* {aka long unsigned int*}` to `int*` in assignment
+
 ```c++
-  irs     = mxGetIr(prhs[0]);
+irs = mxGetIr(prhs[0]);
 ```
 
-The problem comes from the places where original code converts int's to pointers. In 32-bit machine this is okay, but with 64-bit, you need to use a 64-bit type instead of int. In this case, if you read the error in detail, it tells you that mwIndex (a 64-bit pointer of type unsigned long \*) is being assigned to an int. If you go to that line you see irs = mxGetIr(prhs[0]); Find where ir is defined (line 800, 903: `int`) and change its type to a unsigned long (`long unsigned int`). And repeat a similar procedure for this kind of errors.
+The problem comes from the places where original code converts int's to pointers. In 32-bit machine this is okay, but with 64-bit, you need to use a 64-bit type instead of int. In this case, if you read the error in detail, it tells you that mwIndex (a 64-bit pointer of type `unsigned long *`) is being assigned to an int. If you go to that line you see `irs = mxGetIr(prhs[0]);`. Find where `ir` is defined (line 800, 903: `int`) and change its type to a unsigned long (`long unsigned int`). And repeat a similar procedure for this kind of errors.
 
 On 64-bit Windows systems, there will be a problem like:
 
->
->cannot convert ‘mwIndex* {aka long long unsigned int*}’ to ‘int*’ in assignment
+>cannot convert `mwIndex* {aka long long unsigned int*}` to `int*` in assignment
+
 ```c++
-  irs     = mxGetIr(prhs[0]);
+irs = mxGetIr(prhs[0]);
 ```
 
 Solution is similar by changing `int` to `long long unsigned int`.
