@@ -5,7 +5,7 @@ date:   2017-03-16 11:09:33 +0200
 categories: latex
 ---
 
-## Using TeXLive 2015 on LinuxMint in usermode
+## Using TeXLive 2015 on Linux Mint in usermode
 
 ```shell
 $ tlmgr init-usertree
