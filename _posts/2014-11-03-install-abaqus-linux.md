@@ -77,5 +77,5 @@ categories: abaqus
 
 ## References
 
-1. http://blog.yeguang-xue.com/2017/01/18/abaqus-installation
-2. https://polymerfem.com/forum/finite-element-modeling/computer-software-aa/3288-glx-error-when-launching-abaqus-on-debian
+1. [http://blog.yeguang-xue.com/2017/01/18/abaqus-installation](http://blog.yeguang-xue.com/2017/01/18/abaqus-installation)
+2. [https://polymerfem.com/forum/finite-element-modeling/computer-software-aa/3288-glx-error-when-launching-abaqus-on-debian](https://polymerfem.com/forum/finite-element-modeling/computer-software-aa/3288-glx-error-when-launching-abaqus-on-debian)
