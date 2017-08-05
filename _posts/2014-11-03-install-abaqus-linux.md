@@ -40,11 +40,13 @@ categories: abaqus
   ```shell
   $ sudo ln -s /tmp /usr/tmp
   ```
+
 - Create alias for running license manager
 
   ```shell
   alias lm="/opt/abaqus/License/lmgrd -c /opt/abaqus/License/abq6134.dat -l /tmp/abq6134.log"
   ```
+
 - Set the environment variable `export XLIB_SKIP_ARGB_VISUALS=1` in `.profile` or make alias
 
   ```shell
@@ -73,7 +75,12 @@ categories: abaqus
   fi
   ```
   This is because newer version of [Xorg](https://en.wikipedia.org/wiki/X.Org_Server) has disabled indirect OpenGL rendering.
-  ​
+
+  An alternative way is install `libosmesa6`, which is actually pointing to a newer version.
+
+  ```shell
+  $ sudo apt install libosmesa6
+  ```
 
 ## References
 
