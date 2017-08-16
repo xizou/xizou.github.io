@@ -81,6 +81,12 @@ categories: abaqus
   ```shell
   $ sudo apt install libosmesa6
   ```
+  Or one may use an older version of the libraries provided by Abaqus:
+
+  ```shell
+  ABQLIB=/opt/abaqus/6.13-4/code/bin/SMAExternal/mesa/full
+  export LD_LIBRARY_PATH=$ABQLIB:$LD_LIBRARY_PATH
+  ```
 
 ## References
 
