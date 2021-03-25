@@ -30,7 +30,7 @@ compile_fortran = [fortCmd,
                    '-WB', '-I%I']
 
 link_sl = [fortCmd,
-           '-V',           
+           '-V',
            '-cxxlib', '-fPIC', '-threads', '-shared',
            '%E', '-Wl,-soname,%U', '-o', '%U', '%F', '%A', '%L', '%B', '-parallel', '-Wl,-Bdynamic',
            '-i-dynamic', '-lifport', '-lifcoremt']
@@ -61,6 +61,12 @@ This is because the compiling flags used by `gfortran` is not compatible with `i
 - `-mP2OPT_hpo_vec_divbyzero=F` Seems for dealing with divided by zero. No reference found yet. Simply remove it.
 - `-WB` Turns a compile-time bounds check into a warning. Normally, compile-time bounds checks are errors. This is a relaxation of the code strictness, we can remove it or replace with `-Warray-bounds`.
 
+If one would like to use the free form file format of Fortran 90, add the `-ffree-form` flag.
+
+If optimization is desired to accelerate the code, add the `-O3` flag at one's own risk.
+
+Besides, adding `-fcray-pointer` flag will allow the use of C-like pointers in Fortran.
+
 ## Second step: linking
 
 After correction, the compilation error would gone but linking error occurs:
@@ -90,13 +96,12 @@ Finally, the working modified `abaqus_v6.env` file in user path looks like:
 fortCmd = 'gfortran'
 
 compile_fortran = [fortCmd,
-                   '-c', '-fPIC', '-extend_source',
-                   '-Warray-bounds', '-I%I']
+                   '-c', '-fPIC', '-extend_source', '-O3',
+                   '-Warray-bounds', '-ffree-form', '-fcray-pointer', '-I%I']
 
 link_sl = [fortCmd,
            '-fPIC', '-pthread', '-shared',
-           '%E', '-Wl,-soname,%U', '-o', '%U', '%F', '%A', '%L', '%B', '-Wl,-Bdynamic',
-           '-lifport', '-lifcoremt']
+           '%E', '-Wl,-soname,%U', '-o', '%U', '%F', '%A', '%L', '%B', '-Wl,-Bdynamic']
 
 del fortCmd
 ```
